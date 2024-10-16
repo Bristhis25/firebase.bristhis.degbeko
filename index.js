@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import 'dotenv/config';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 console.log("Bonjour tout le monde v1");
@@ -26,5 +25,9 @@ const firebaseConfig = {
     return factures;
   }
   const factures = await getfactures(db);
-  console.log(factures)
+
+  factures.forEach(facture => {
+    if ((parseFloat(facture.TotalTTC) > 10)) {
+      console.log(facture.id);
+  }})
  
